@@ -13,6 +13,12 @@
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "topic_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::topic-category.topic-category",
+      "inversedBy": "topics"
     }
   }
 }
