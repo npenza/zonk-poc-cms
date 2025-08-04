@@ -538,13 +538,13 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiQuizCategoryQuizCategory
+export interface ApiTopicCategoryTopicCategory
   extends Struct.CollectionTypeSchema {
-  collectionName: 'quiz_categories';
+  collectionName: 'topic_categories';
   info: {
-    displayName: 'QuizCategory';
-    pluralName: 'quiz-categories';
-    singularName: 'quiz-category';
+    displayName: 'TopicCategory';
+    pluralName: 'topic-categories';
+    singularName: 'topic-category';
   };
   options: {
     draftAndPublish: true;
@@ -556,24 +556,22 @@ export interface ApiQuizCategoryQuizCategory
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::quiz-category.quiz-category'
+      'api::topic-category.topic-category'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    quizzes: Schema.Attribute.Relation<'manyToMany', 'api::quiz.quiz'>;
-    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
   };
 }
 
-export interface ApiQuizQuiz extends Struct.CollectionTypeSchema {
-  collectionName: 'quizzes';
+export interface ApiTopicTopic extends Struct.CollectionTypeSchema {
+  collectionName: 'topics';
   info: {
-    displayName: 'Quiz';
-    pluralName: 'quizzes';
-    singularName: 'quiz';
+    displayName: 'Topic';
+    pluralName: 'topics';
+    singularName: 'topic';
   };
   options: {
     draftAndPublish: true;
@@ -583,13 +581,9 @@ export interface ApiQuizQuiz extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::quiz.quiz'> &
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::topic.topic'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    quiz_categories: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::quiz-category.quiz-category'
-    >;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1111,8 +1105,8 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
-      'api::quiz-category.quiz-category': ApiQuizCategoryQuizCategory;
-      'api::quiz.quiz': ApiQuizQuiz;
+      'api::topic-category.topic-category': ApiTopicCategoryTopicCategory;
+      'api::topic.topic': ApiTopicTopic;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

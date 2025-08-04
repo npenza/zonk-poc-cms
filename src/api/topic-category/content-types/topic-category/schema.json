@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "topic_categories",
+  "info": {
+    "singularName": "topic-category",
+    "pluralName": "topic-categories",
+    "displayName": "TopicCategory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}
